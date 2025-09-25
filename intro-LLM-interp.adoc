@@ -1,4 +1,4 @@
-= AI/ML Model Interpretability: Methods and Attribution Graphs
+= AI/ML Model Interpretability
 :revealjs_theme: moon
 :revealjs_transition: slide
 :source-highlighter: highlight.js
@@ -13,86 +13,78 @@
 
 [.stretch]
 --
-* *Goal*: Make AI models transparent and interpretable through systematic analysis
+* Goal: Make AI models transparent and interpretable through systematic analysis
 
-* *Challenge*: Understanding AI models is similar to biological research - complex systems requiring sophisticated tools
-image:./intro-LLM-interp-imgs/circuits1.jpg[width=550,float=right]
+* Challenge: Understanding AI models is similar to biological research - complex systems requiring sophisticated tools
+image:./intro-LLM-interp-imgs/circuits1.jpg[width=500,float=right]
+* Predictions about unexpected AI outputs
+* "Microscopes" for AI model internals
 
-* *Outcomes*:
-  ** Make predictions about unexpected AI outputs
-  ** "Microscopes" for AI model internals
-https://transformer-circuits.pub/
+_Lindsey, et al., "On the Biology of a Large Language Model", Transformer Circuits, 2025._
 --
+
+== One slide overview (MLP=ANN=FF)
+
+[.stretch]
+--
+image:./intro-LLM-interp-imgs/circuits3.png[width=450,float=left]
+image:./intro-LLM-interp-imgs/circuits4.jpg[width=450,float=left]
+--
+image:./intro-LLM-interp-imgs/circuits5.jpg[width=600,float=center]
+
+_Ameisen, et al., "Circuit Tracing: Revealing Computational Graphs in Language Models", Transformer Circuits, 2025._
+
+
+== Attribution Graphs
+
+[.stretch]
+--
+* Interactions between features (text from input) activating neurons
+* Graphs showing feature-feature interactions on specific prompts
+image:./intro-LLM-interp-imgs/circuits6.jpg[width=650,float=right]
+* Interaction chains influencing model output
+* Prompt analysis revealing circuits
+
+https://www.neuronpedia.org/
+--
+
+== Transformer Architecture of LLMs
+
+[.stretch]
+--
+* Attention Layer followed by *FF Layer*
+image:./intro-LLM-interp-imgs/circuits7.jpg[width=400,float=right]
+* Attention Heads: Long-range connections within text
+* Feed Forward: Same as in previous slide 
+* N x times : Multiple heads run in parallel
+* If you trained a neural network, similar plus attention
+
+_Vaswani A et al. Attention is all you need. arXiv:1706.03762. 2017;30_
+
+--
+
 
 
 == The Landscape of Interpretability
 
 [.stretch]
 --
-* *Observation*: Model behaviors to understand underlying mechanisms
-* *Sparse Autoencoders (SAEs)*: Identifying concepts (features) in the model
-
+* Observation: Model behaviors to understand underlying mechanisms
+* Sparse Autoencoders: Identifying knowledge (features) stored in the neurons
 image:./intro-LLM-interp-imgs/circuits2.jpg[width=350,float=right]
 
-* *Linear Probes*: Internal linear representations of specific concepts
-* *Intervention Experiments*: Steering, neural activation patching, and ablations
+* Linear Probes: Internal linear representations of specific concepts
+* Intervention Experiments: Steering, neural activation patching, and ablations
+
+https://transformer-circuits.pub/
 --
 
-== One slide overview 
-
+== Thanks !
 [.stretch]
 --
-image:./intro-LLM-interp-imgs/circuits3.png[width=500,float=left]
-image:./intro-LLM-interp-imgs/circuits4.jpg[width=500,float=left]
+* https://github.com/KKrampis/presentations
+* Transformers the tech behind LLMs https://tinyurl.com/3b1b-Transformers
+* https://tinyurl.com/alignment-nanda-papers
+* https://tinyurl.com/nanda-become-interp-researcher  
+* https://www.neelnanda.io/mechanistic-interpretability/quickstart
 --
-image:./intro-LLM-interp-imgs/circuits5.jpg[width=600,float=center]
-
-_Ameisen, et al., "Circuit Tracing: Revealing Computational Graphs in Language Models", Transformer Circuits, 2025._
-
-== Attribution Graphs for Studying Model Biology
-
-[.stretch]
---
-* Compute interactions between features active on specific prompts
-* Create interactive graphs showing feature-feature interactions
-* Identify important interaction chains influencing model output
-* Per-prompt analysis revealing computational pathways
-
---
-
-== Transformer Architecture: Circuit-Based View
-
-[.stretch]
---
-* Each residual block contains:
-  ** *Attention Layer* followed by *MLP Layer*
-  ** Both layers "read" from and "write" to the residual stream
-
-* *Attention Heads*: Independent operations outputting results added to residual stream
-* *Linear Projections*: Read input from residual stream, write results back via addition
---
-
-[.notes]
-====
-The transformer architecture can be viewed as a series of circuit components that process information through a central residual stream, enabling mathematical analysis of information flow.
-====
-
-== The Residual Stream: Mathematical Properties
-
-[.stretch]
---
-* Foundation for circuit-based interpretability methods
-* *Additive Structure*: Each layer adds its output to the stream
-* *End-to-End Functions*: Attention-only models can be written as sum of interpretable functions mapping tokens to logit changes
-* Each layer *adds* its results into the residual stream
-* Attention heads can be understood as *independent operations*
-
-_Elhage, et al., "A Mathematical Framework for Transformer Circuits", Transformer Circuits Thread, 2021._
---
-
-[.notes]
-====
-The linear, additive structure of the residual stream is unique among neural architectures and provides a mathematical foundation for understanding transformer computations.
-This mathematical framework has enabled significant discoveries in mechanistic interpretability and provides tools for understanding transformer behavior.
-====
-
