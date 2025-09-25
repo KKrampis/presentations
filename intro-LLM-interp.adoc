@@ -1,8 +1,13 @@
-= AI Model Interpretability: Methods and Attribution Graphs
+= AI/ML Model Interpretability: Methods and Attribution Graphs
 :revealjs_theme: moon
 :revealjs_transition: slide
 :source-highlighter: highlight.js
 :icons: font
+:pdf-page-layout: landscape
+:autofit-option:
+:optimize: screen
+:pagenums:
+:pdf-page-mode: fullscreen
 
 == Understanding AI Model Internals
 
@@ -16,7 +21,7 @@ image:./intro-LLM-interp-imgs/circuits1.jpg[width=550,float=right]
 * *Outcomes*:
   ** Make predictions about unexpected AI outputs
   ** "Microscopes" for AI model internals
-  ** Enable targeted interventions and analysis
+https://transformer-circuits.pub/
 --
 
 
@@ -26,7 +31,8 @@ image:./intro-LLM-interp-imgs/circuits1.jpg[width=550,float=right]
 --
 * *Observation*: Model behaviors to understand underlying mechanisms
 * *Sparse Autoencoders (SAEs)*: Identifying concepts (features) in the model
-image:./intro-LLM-interp-imgs/circuits2.jpg[width=450,float=right]
+
+image:./intro-LLM-interp-imgs/circuits2.jpg[width=350,float=right]
 
 * *Linear Probes*: Internal linear representations of specific concepts
 * *Intervention Experiments*: Steering, neural activation patching, and ablations
@@ -36,8 +42,8 @@ image:./intro-LLM-interp-imgs/circuits2.jpg[width=450,float=right]
 
 [.stretch]
 --
-image:./intro-LLM-interp-imgs/circuits3.png[width=450,float=left]
-image:./intro-LLM-interp-imgs/circuits4.gif[width=450,float=left]
+image:./intro-LLM-interp-imgs/circuits3.png[width=500,float=left]
+image:./intro-LLM-interp-imgs/circuits4.jpg[width=500,float=left]
 --
 image:./intro-LLM-interp-imgs/circuits5.jpg[width=600,float=center]
 
@@ -58,7 +64,6 @@ _Ameisen, et al., "Circuit Tracing: Revealing Computational Graphs in Language M
 
 [.stretch]
 --
-* *Token Embedding* → Series of *Residual Blocks* → *Token Unembedding*
 * Each residual block contains:
   ** *Attention Layer* followed by *MLP Layer*
   ** Both layers "read" from and "write" to the residual stream
