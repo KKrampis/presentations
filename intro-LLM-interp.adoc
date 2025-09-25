@@ -34,29 +34,15 @@ image:./intro-LLM-interp-imgs/circuits5.jpg[width=600,float=center]
 
 _Ameisen, et al., "Circuit Tracing: Revealing Computational Graphs in Language Models", Transformer Circuits, 2025._
 
-
-== Attribution Graphs
-
-[.stretch]
---
-* Interactions between features (text from input) activating neurons
-* Graphs showing feature-feature interactions on specific prompts
-image:./intro-LLM-interp-imgs/circuits6.jpg[width=650,float=right]
-* Interaction chains influencing model output
-* Prompt analysis revealing circuits
-
-https://www.neuronpedia.org/
---
-
 == Transformer Architecture of LLMs
 
 [.stretch]
 --
-* Attention Layer followed by *FF Layer*
+* Attention layer followed by *FF Layer*
 image:./intro-LLM-interp-imgs/circuits7.jpg[width=400,float=right]
-* Attention Heads: Long-range connections within text
-* Feed Forward: Same as in previous slide 
-* N x times : Multiple heads run in parallel
+* Attention Heads: long-range connections within text
+* Feed Forward: same as in previous slide 
+* N x times : multiple heads run in parallel
 * If you trained a neural network, similar plus attention
 
 _Vaswani A et al. Attention is all you need. arXiv:1706.03762. 2017;30_
@@ -69,7 +55,7 @@ _Vaswani A et al. Attention is all you need. arXiv:1706.03762. 2017;30_
 
 [.stretch]
 --
-* Observation: Model behaviors to understand underlying mechanisms
+* Neurons are "Poly-semantic" (superposition phenomenon) 
 * Sparse Autoencoders: Identifying knowledge (features) stored in the neurons
 image:./intro-LLM-interp-imgs/circuits2.jpg[width=350,float=right]
 
@@ -77,6 +63,19 @@ image:./intro-LLM-interp-imgs/circuits2.jpg[width=350,float=right]
 * Intervention Experiments: Steering, neural activation patching, and ablations
 
 https://transformer-circuits.pub/
+--
+
+== Attribution Graphs
+
+[.stretch]
+--
+* Interactions between features (text from input) activating neurons
+* Graphs showing feature-feature interactions on specific prompts
+image:./intro-LLM-interp-imgs/circuits6.jpg[width=650,float=right]
+* Interaction chains influencing model output
+* Prompt analysis revealing circuits
+
+https://www.neuronpedia.org/
 --
 
 == Thanks !
