@@ -1,0 +1,93 @@
+= AI Model Interpretability: Methods and Attribution Graphs
+:revealjs_theme: moon
+:revealjs_transition: slide
+:source-highlighter: highlight.js
+:icons: font
+
+== Understanding AI Model Internals
+
+[.stretch]
+--
+* *Goal*: Make AI models transparent and interpretable through systematic analysis
+
+* *Challenge*: Understanding AI models is similar to biological research - complex systems requiring sophisticated tools
+image:./intro-LLM-interp-imgs/circuits1.jpg[width=550,float=right]
+
+* *Outcomes*:
+  ** Make predictions about unexpected AI outputs
+  ** "Microscopes" for AI model internals
+  ** Enable targeted interventions and analysis
+--
+
+
+== The Landscape of Interpretability
+
+[.stretch]
+--
+* *Observation*: Model behaviors to understand underlying mechanisms
+* *Sparse Autoencoders (SAEs)*: Identifying concepts (features) in the model
+image:./intro-LLM-interp-imgs/circuits2.jpg[width=450,float=right]
+
+* *Linear Probes*: Internal linear representations of specific concepts
+* *Intervention Experiments*: Steering, neural activation patching, and ablations
+--
+
+== One slide overview 
+
+[.stretch]
+--
+image:./intro-LLM-interp-imgs/circuits3.png[width=450,float=left]
+image:./intro-LLM-interp-imgs/circuits4.gif[width=450,float=left]
+--
+image:./intro-LLM-interp-imgs/circuits5.jpg[width=600,float=center]
+
+_Ameisen, et al., "Circuit Tracing: Revealing Computational Graphs in Language Models", Transformer Circuits, 2025._
+
+== Attribution Graphs for Studying Model Biology
+
+[.stretch]
+--
+* Compute interactions between features active on specific prompts
+* Create interactive graphs showing feature-feature interactions
+* Identify important interaction chains influencing model output
+* Per-prompt analysis revealing computational pathways
+
+--
+
+== Transformer Architecture: Circuit-Based View
+
+[.stretch]
+--
+* *Token Embedding* → Series of *Residual Blocks* → *Token Unembedding*
+* Each residual block contains:
+  ** *Attention Layer* followed by *MLP Layer*
+  ** Both layers "read" from and "write" to the residual stream
+
+* *Attention Heads*: Independent operations outputting results added to residual stream
+* *Linear Projections*: Read input from residual stream, write results back via addition
+--
+
+[.notes]
+====
+The transformer architecture can be viewed as a series of circuit components that process information through a central residual stream, enabling mathematical analysis of information flow.
+====
+
+== The Residual Stream: Mathematical Properties
+
+[.stretch]
+--
+* Foundation for circuit-based interpretability methods
+* *Additive Structure*: Each layer adds its output to the stream
+* *End-to-End Functions*: Attention-only models can be written as sum of interpretable functions mapping tokens to logit changes
+* Each layer *adds* its results into the residual stream
+* Attention heads can be understood as *independent operations*
+
+_Elhage, et al., "A Mathematical Framework for Transformer Circuits", Transformer Circuits Thread, 2021._
+--
+
+[.notes]
+====
+The linear, additive structure of the residual stream is unique among neural architectures and provides a mathematical foundation for understanding transformer computations.
+This mathematical framework has enabled significant discoveries in mechanistic interpretability and provides tools for understanding transformer behavior.
+====
+
